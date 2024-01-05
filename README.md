@@ -8,6 +8,7 @@
 
 - The numerical integration program is implemented in Python and can be found in the file `integration.py`. The program iteratively computes the numerical integral for various values of N (1, 10, 100, 1000, 10000, 100000, 1000000) and prints the results.
 
+## 
 - install python3
 -  creating python virtual environmnt 
 - installing python vs code extention
@@ -17,5 +18,3 @@
 - building docker image using dockerfile
 - writing docker compose file
 - writing kubernetes Manifest files for appllication 
-- creating Helm chart
-- deploying the helm chart on K8s cluster.
