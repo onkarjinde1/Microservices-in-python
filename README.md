@@ -12,8 +12,7 @@
 - install python3
 -  creating python virtual environmnt 
 - installing python vs code extention
--  sample flask application - 
-- jinja templating for dynamic web pages
+-  sample flask application
 - using pip to freeze python dependencies
 - building docker image using dockerfile
 - writing docker compose file
