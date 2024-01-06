@@ -1,35 +1,21 @@
 from locust import HttpUser, task, between
 
-class MyUser(HttpUser):
+class MyLocust(HttpUser):
     wait_time = between(1, 3)
+    host = "http://127.0.0.1:5000/numericalintegralservice/0/3.14"  # Replace with the actual URL of your application
 
-    @task
+    @task(1)  # Adjust the weights as needed
     def numerical_integration_task(self):
         lower = 0
-        upper = 3.14
+        upper = 3.14159
 
-        response = self.client.get(f"/numericalintegralservice/{lower}/{upper}")
+        # Hit the numerical integration endpoint
+        response = self.client.get(f'/numericalintegralservice/{lower}/{upper}')
 
-        # Check if the response is successful (status code 200)
-        if response.status_code == 200:
-            # You can parse the response content if needed
-            integration_results = response.json()
-        else:
-            # Handle non-successful responses as needed
-            print(f"Error: {response.status_code}, {response.text}")
-
-    @task
+    @task(2)  # Adjust the weights as needed
     def details_task(self):
         lower = 0
-        upper = 3.14
+        upper = 3.14159
 
-        response = self.client.get(f"/numericalintegralservice/{lower}/{upper}/details")
-
-        # Check if the response is successful (status code 200)
-        if response.status_code == 200:
-            # You can parse the response content if needed
-            details_data = response.text
-        else:
-            # Handle non-successful responses as needed
-            print(f"Error: {response.status_code}, {response.text}")
-
+        # Hit the details endpoint
+        response = self.client.get(f'/numericalintegralservice/{lower}/{upper}/details')
